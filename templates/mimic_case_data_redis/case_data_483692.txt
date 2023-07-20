@@ -1,0 +1,24 @@
+Case Management Note
+   The patient is a 68 yo M with PMH of stage III squamous cell throat CA
+   admitted for PNA, who was transferred to the [**Hospital Unit Name 1**] from the oncology
+   service for hypoxic respiratory distress.  He now has a tracheostomy
+   and needs pulmonary rehab.
+   This nurse case manager spoke with the patient
+s wife to discuss
+   post-acute care options prior to the patient receiving a tracheostomy.
+    Mrs. [**Known lastname 10068**] requested referrals to [**Hospital3 **] and to [**Hospital **]
+   at [**Location (un) 221**], which is a skilled nursing facility.  This NCM informed
+   Mrs. [**Known lastname 10068**] that the patient is likely to require post-acute care at
+   an LTACH vs an acute rehab facility given his respiratory difficulties
+   at the time.  Now that he has a new trach, it is unlikely that any [**Hospital1 238**]
+   will be able to offer a bed.  This NCM explained what an LTACH is and
+   Mrs. [**Known lastname 10068**] agreed to a referral to [**Hospital1 189**].  The [**Hospital1 **] screener
+   will screen for both SRH and [**Hospital1 189**], and will forward the screen to
+   Shaughnessey-[**Hospital1 2679**] in [**Hospital1 190**] as a back-up option.
+   We are currently awaiting a decision from SRH, [**Hospital1 189**] and SKR.
+   Decisions are expected by [**10-5**].  This NCM will continue to follow and
+   assist with discharge planning.
+   Please page for any questions or further case management assistance.
+   [**First Name11 (Name Pattern1) 115**] [**Last Name (NamePattern4) 6189**], RN, BSN
+   MICU Service Case Manager
+   Phone:  7-0306  Pager:  [**Numeric Identifier 3998**]

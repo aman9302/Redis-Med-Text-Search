@@ -1,0 +1,23 @@
+Case Management Discharge Planning Note
+   The patient is a 68 yo M with PMH of stage III squamous cell throat CA
+   admitted for PNA, who was transferred to the [**Hospital Unit Name 1**] from the oncology
+   service for hypoxic respiratory distress.  He now has a tracheostomy
+   and needs pulmonary rehab.
+   This NCM spoke again with Mrs. [**Known lastname 10068**] about post-acute care options.
+   She indicated that she understood why the patient needed care at an
+   LTACH vs an acute rehab or [**Hospital1 238**].  [**Hospital1 189**] has clinically accepted the
+   patient but has not yet offered a bed.  This NCM has provided both HPHC
+   and [**Hospital1 189**] with additional clinical information.
+   The patient
+s HPHC case manager is [**First Name8 (NamePattern2) 455**] [**Last Name (NamePattern1) 10564**] at ([**Telephone/Fax (1) 10565**].
+   She has authorized LTACH level of care and has requested that the
+   [**Hospital1 189**] admissions nurse call her.  This NCM has left a VM for [**First Name8 (NamePattern2) 458**]
+   [**Doctor Last Name 10566**] at [**Hospital1 189**] to do so.
+   At this point, the patient
+s discharge is pending insurance
+   authorization.  Case management will continue to follow to facilitate
+   this patient
+s discharge once auth has been obtained.
+   [**First Name11 (Name Pattern1) 115**] [**Last Name (NamePattern4) 6189**], RN, BSN
+   MICU Service Case Manager
+   Phone:  7-0306  Pager:  [**Numeric Identifier 3998**]

@@ -1,0 +1,22 @@
+Planned Discharge Date: [**2106-5-19**]
+   Insurance Update
+   Primary insurance / reviewer: [**Hospital1 **] HMO [**Hospital 564**]
+   Hospital days authorized to:
+   Current Discharge Plan: Acute rehab
+   Pt. will need rehab once he is stabilized.
+   Barrier(s) To Discharge:
+   The patient's sisters are seeking guardianship - [**Name2 (NI) 565**] as the
+   patient cannot make decisions regarding his care at this time.
+   Family Meeting: No
+   Referrals:
+   Narrative / Plan (Multidisciplinary team):
+   The patient has an application for Mass Health that is at its initial
+   stages.  This process is being managed by [**First Name8 (NamePattern2) 453**] [**Last Name (NamePattern1) 497**] Office in
+   conjunction with the patient's sisters.  In the interim, the patient's
+   ex-wife will continue to cover him through Tuft's.  She has been
+   terminated from her position and will be purchasing her health care
+   coverage through a COBRA plan at her former place of employment.  I
+   have contact[**Name (NI) **] the on site liaison for [**Name (NI) 566**] to confirm ongoing
+   coverage.  [**First Name4 (NamePattern1) 478**] [**Last Name (NamePattern1) 439**], SW for ICU has  discussed this with the
+   patient's sisters and is working in having them obtain guardianship for
+   the purpose of ongoing healthcare decisions and placement.
