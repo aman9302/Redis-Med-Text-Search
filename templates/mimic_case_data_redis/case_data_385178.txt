@@ -1,0 +1,22 @@
+TITLE:  Case Management Discharge Plan
+ LTACH Transfer
+   The patient is an 85 yo M with h/o CHF (EF 20%), acute on chronic
+   (stage IV) renal failure, recent GIB (h/o AVMs), who was transferred
+   from [**Hospital1 630**] [**Location (un) 223**] and admitted to the [**Location (un) 35**] with shock and respiratory
+   failure.
+   Based on discussions with the [**Location (un) 35**] team, the patient is likely to be
+   ready for return to [**Hospital1 630**] [**Location (un) 223**] ([**Location (un) 9644**].) on
+   Saturday, [**6-28**]^th.  Transfer has been arranged for a 1 PM departure
+   on Saturday.  NCM has informed the patient
+s nurse [**First Name (Titles) **] [**Last Name (Titles) 35**] resident.
+   The [**Last Name (Titles) 35**] resident will confirm the discharge plan with the patient
+   niece.
+   NCM has confirmed with [**First Name4 (NamePattern1) 179**] [**Last Name (NamePattern1) **] of [**Hospital1 630**] that the patient will be
+   dialyzed at [**Hospital1 630**] when he arrives and has informed his nurse who will
+   likely be caring for the patient tomorrow at the time of discharge.
+   If there is a change of plan, please contact weekend case manager [**Name (NI) 893**]
+   [**Name (NI) 9645**] at beeper #[**Numeric Identifier 9646**].
+   [**First Name11 (Name Pattern1) 361**] [**Last Name (NamePattern4) 5752**], RN, BSN
+   [**Last Name (NamePattern4) 35**] Service Case Manager
+   Phone:  2-7925/7-0306
+   Pager:  [**Numeric Identifier 5753**]
