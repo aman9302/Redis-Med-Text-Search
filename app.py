@@ -1,4 +1,5 @@
 import os
+import requests
 from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
 import redis
@@ -8,21 +9,24 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 class RedisTextSearch:
-    def __init__(self, folder_path):
+    def __init__(self, url_list):
         self.redis_server = redis.Redis()
-        self.folder_path = folder_path
-        self.texts = self.load_texts_from_folder()
+        self.texts = self.load_texts_from_url(url_list)
         self.bm25_model = None
 
-    def load_texts_from_folder(self):
+    def load_texts_from_url(self, url_list):
         texts = []
-        for filename in os.listdir(self.folder_path):
-            if filename.endswith('.txt'):
-                file_path = os.path.join(self.folder_path, filename)
-                with open(file_path, 'r') as file:
-                    text = file.read()
-                    texts.append(text)
+        for url in url_list:
+            text = self.fetch_text_from_url(url)
+            texts.append(text)
         return texts
+
+    def fetch_text_from_url(self, url):
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.text
+        else:
+            raise ValueError(f"Failed to fetch content from URL. Status code: {response.status_code}")
 
     def store_original_texts(self):
         for index, text in enumerate(self.texts):
@@ -57,9 +61,27 @@ class RedisTextSearch:
 
         return similar_texts
 
-# Folder path for text files
-folder_path = '/Users/304026/Downloads/Redis-Med-Text-Search-app/mimic_case_data_redis'
-redis_app = RedisTextSearch(folder_path)
+# Fetch file URLs from the GitHub repository folder using the GitHub API
+def get_github_files(api_url):
+    response = requests.get(api_url)
+    if response.status_code == 200:
+        data = response.json()
+        urls = [item['download_url'] for item in data]
+        return urls
+    else:
+        raise ValueError(f"Failed to fetch file URLs from GitHub API. Status code: {response.status_code}")
+
+# GitHub repository details
+github_repo = 'aman9302/Redis-Med-Text-Search'
+folder_path = 'mimic_case_data_redis'
+
+# GitHub API endpoint to get the contents of a repository folder
+api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
+
+# Get file URLs
+file_urls = get_github_files(api_url)
+
+redis_app = RedisTextSearch(file_urls)
 redis_app.store_original_texts()
 redis_app.store_embeddings()
 
@@ -67,9 +89,3 @@ redis_app.store_embeddings()
 def index():
     if request.method == 'POST':
         query_text = request.form['query']
-        results = redis_app.search_bm25_redis(query_text)
-        return render_template('index.html', results=results, query=query_text)
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
