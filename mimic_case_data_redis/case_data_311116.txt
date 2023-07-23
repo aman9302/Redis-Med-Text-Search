@@ -1,0 +1,28 @@
+Insurance information
+   Primary insurance: Medicare A&B
+   Secondary insurance: Medicaid
+   Insurance reviewer::
+   Free Care application: N/A
+   Status: Active
+   Medicaid application: Yes
+   Pre-Hospitalization services: No history of prior services as the
+   patient has been hospitalized since his spinal cord injury.
+   DME / Home O[2]: Wheelchair
+   Functional Status / Home / Family Assessment:
+   Pt. is a resident at [**Hospital 12**] Rehab Ctr.  He has been placed there since
+   [**2105-2-9**]. He has been a paraplegic for 13  months and per facilit.  He
+   has a stage IV decubitus on coccyx and back.  He is independent with
+   bathing and dressing.  He is totally dependent for toileting.  He has a
+   Foley Catheter and is incontinent of stool.  Unclear if he has a
+   wheelchair. The patient had spinal cord rehab at  [**Location (un) 631**] in [**Month (only) **]/[**Month (only) 821**].
+   of [**2104**].
+   Primary Contact(s): No contacts listed
+   Health Care Proxy: No Proxy.
+   Dialysis: [**Name2 (NI) 59**]
+   Referrals Recommended: Social Work
+   Current plan: Rehab
+   Return to [**Hospital 12**] Rehab if possible.  Since his last admission to [**Hospital1 54**]
+   he has Medcaid coverage.  Unclear if he has a bed hold.  I will clarify
+   with HRC on Thursday.
+   Patient [**Name (NI) 7**](s) to Discharge:
+   Patient discussed with multidisciplinary team: No
