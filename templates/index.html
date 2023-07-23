@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Text Search</title>
+    <style>
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f2f2f2; /* Light Gray background */
+            font-family: Verdana, sans-serif; /* Verdana font */
+            color: #333; /* Dark Gray text color */
+        }
+
+        .header {
+            background-color: #007BFF; /* Blue header background */
+            padding: 10px;
+            text-align: center;
+            color: white; /* White text color for header */
+            position: fixed; /* Set the title bar as a fixed element */
+            top: 0; /* Stick it to the top of the screen */
+            left: 0; /* Stretch it from the left side */
+            width: 100%; /* Full width */
+            z-index: 1; /* Make sure it stays on top */
+        }
+
+        .title {
+            font-size: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white; /* White background for the content area */
+            border: 2px solid #ddd; /* Gray border around the content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 3D effect shadow */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd; /* Gray border for the input field */
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #007BFF; /* Blue button background */
+            color: white; /* White text color for the button */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue background on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Medical Text Search</h1>
+    </div>
+
+    <div class="content">
+        <form method="POST" action="/">
+            <label for="query">Enter query:</label>
+            <input type="text" name="query" id="query" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if results %}
+            <h2>Search Results:</h2>
+            <ul>
+                {% for result in results %}
+                    <li>{{ result }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
