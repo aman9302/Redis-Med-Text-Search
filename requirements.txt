@@ -1,0 +1,6 @@
+os
+requests
+redis
+sentence-transformers
+rank-bm25
+flask
