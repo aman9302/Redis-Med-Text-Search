@@ -20,13 +20,15 @@ app = Flask(__name__)
 ## Main Class For Redis Text Search
 #
 class RedisTextSearch:
-   
+
     ## Redis Configuration Function
     #
     def __init__(self, api_url):
+        # Hardcoded Redis credentials
         self.redis_host = 'redis-17518.c1.asia-northeast1-1.gce.cloud.redislabs.com'
         self.redis_port = 17518
         self.redis_password = 'qy3S0BOfokwVQTBAjEwto10e7k4u5mKl'
+        
         self.redis_server = self.connect_to_redis()
 
         self.api_url = api_url
@@ -37,7 +39,7 @@ class RedisTextSearch:
     #
     def connect_to_redis(self):
         try:
-            return redis.StrictRedis(
+            return redis.Redis(
                 host=self.redis_host,
                 port=self.redis_port,
                 password=self.redis_password,
