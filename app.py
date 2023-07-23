@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 class RedisTextSearch:
     def __init__(self, api_url):
-        self.redis_server = redis.Redis()
+        self.redis_server = redis.Redis(host='redis-server', port=6379)
         self.api_url = api_url
         self.texts = self.load_texts_from_url()
         self.bm25_model = None
@@ -91,5 +91,9 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8501, debug=True)
+    app.run(debug=True, host='0.0.0.0', port=8501)
+
+
+
+
 
