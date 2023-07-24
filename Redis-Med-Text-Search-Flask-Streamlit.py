@@ -134,25 +134,28 @@ redis_app = RedisTextSearch(api_url)
 ## Streamlit app code
 #
 def main():
-    st.title("Redis Medical Text Search")
+    st.title("Medical Text Search using Redis")
 
     # Search input
     query_text = st.text_input("Enter query:")
 
     # Search button
     if st.button("Search"):
-        if query_text:
-            # Perform search using RedisTextSearch
-            results = redis_app.search_bm25_redis(query_text)
-            # Display search results
-            if results:
-                st.header("Search Results:")
-                for result in results:
-                    st.write(result)
-            else:
-                st.write("No results found.")
+        if query_text.strip():  # Validate that the query is not empty or whitespace
+            try:
+                # Perform search using RedisTextSearch
+                results = redis_app.search_bm25_redis(query_text)
+                # Display search results
+                if results:
+                    st.header("Search Results:")
+                    for result in results:
+                        st.write(result)
+                else:
+                    st.write("No results found.")
+            except Exception as e:
+                st.write(f"Error occurred during search: {e}")
         else:
-            st.write("Please enter a query.")
+            st.write("Please enter a valid query.")
 
 if __name__ == '__main__':
     main()
