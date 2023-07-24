@@ -130,7 +130,6 @@ api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
 ## Initialize RedisTextSearch with Redis Labs credentials and GitHub API URL
 #
 redis_app = RedisTextSearch(api_url)
-redis_app.connect_to_redis(REDIS_HOST, REDIS_PORT, REDIS_PASSWORD)
 
 ## Streamlit app code
 #
