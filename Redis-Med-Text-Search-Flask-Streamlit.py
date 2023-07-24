@@ -134,7 +134,7 @@ redis_app = RedisTextSearch(api_url)
 ## Streamlit app code
 #
 def main():
-    st.title("Medical Text Search using Redis")
+    st.title("Redis Medical Text Search")
 
     # Search input
     query_text = st.text_input("Enter query:")
