@@ -14,21 +14,6 @@ from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
 import streamlit as st
 
-## Set Redis credentials for Redislabs
-#
-redis_host = 'redis-17518.c1.asia-northeast1-1.gce.cloud.redislabs.com'
-redis_port = 17518
-redis_password = 'qy3S0BOfokwVQTBAjEwto10e7k4u5mKl'
-
-## Connect to the Redis server
-#
-redis_server = redis.Redis(
-    host=redis_host,
-    port=redis_port,
-    password=redis_password,
-    decode_responses=True
-)
-
 ## Main Class For Redis Text Search
 #
 class RedisTextSearch:
