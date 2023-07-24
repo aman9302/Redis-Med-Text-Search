@@ -136,26 +136,44 @@ redis_app = RedisTextSearch(api_url)
 def main():
     st.title("Medical Text Search using Redis")
 
-    # Search input
-    query_text = st.text_input("Enter query:")
+    # Box around the search input and button
+    st.markdown(
+        """
+        <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+            <form>
+                <label for="query">Enter query:</label>
+                <input type="text" name="query" id="query" required>
+                <button type="submit" style="margin-left: 10px;">Search</button>
+            </form>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     # Search button
     if st.button("Search"):
-        if query_text.strip():  # Validate that the query is not empty or whitespace
-            try:
-                # Perform search using RedisTextSearch
-                results = redis_app.search_bm25_redis(query_text)
-                # Display search results
-                if results:
-                    st.header("Search Results:")
-                    for result in results:
-                        st.write(result)
-                else:
-                    st.write("No results found.")
-            except Exception as e:
-                st.write(f"Error occurred during search: {e}")
+        query_text = st.text_input("Enter query:")
+        if not query_text:
+            st.error("Please enter a query.")
         else:
-            st.write("Please enter a valid query.")
+            # Perform search using RedisTextSearch
+            try:
+                results = redis_app.search_bm25_redis(query_text)
+                if results:
+                    # Box around the search results
+                    st.header("Search Results:")
+                    st.markdown(
+                        f"""
+                        <div style="border: 1px solid #ddd; padding: 10px; border-radius: 5px;">
+                            {'<br>'.join(results)}
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
+                else:
+                    st.info("No results found.")
+            except Exception as e:
+                st.error(f"An error occurred during the search: {e}")
 
 if __name__ == '__main__':
     main()
