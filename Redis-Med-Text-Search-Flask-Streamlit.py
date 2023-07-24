@@ -7,15 +7,27 @@
 
 ## Import required packages
 #
+import os
 import requests
 import redis
 from sentence_transformers import SentenceTransformer
 from rank_bm25 import BM25Okapi
-from flask import Flask, render_template, request
+import streamlit as st
 
-## Initialise Flask App
+## Set Redis credentials for Redislabs
 #
-app = Flask(__name__)
+redis_host = 'redis-17518.c1.asia-northeast1-1.gce.cloud.redislabs.com'
+redis_port = 17518
+redis_password = 'qy3S0BOfokwVQTBAjEwto10e7k4u5mKl'
+
+## Connect to the Redis server
+#
+redis_server = redis.Redis(
+    host=redis_host,
+    port=redis_port,
+    password=redis_password,
+    decode_responses=True
+)
 
 ## Main Class For Redis Text Search
 #
@@ -119,25 +131,43 @@ class RedisTextSearch:
 
         return similar_texts
 
-# GitHub repository details
-github_repo = 'aman9302/Redis-Med-Text-Search'
-folder_path = 'mimic_case_data_redis'
+# Load the HTML template
+def load_template():
+    with open('templates/index.html', 'r') as file:
+        return file.read()
 
-# GitHub API endpoint to get the contents of a repository folder
-api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
+# Load your Streamlit app UI and run the app
+def main():
+    # Instantiate the RedisTextSearch class with the GitHub API URL
+    github_repo = 'aman9302/Redis-Med-Text-Search'
+    folder_path = 'mimic_case_data_redis'
+    api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
+    redis_app = RedisTextSearch(api_url)
+    redis_app.store_original_texts()
+    redis_app.store_embeddings()
 
-redis_app = RedisTextSearch(api_url)
-redis_app.store_original_texts()
-redis_app.store_embeddings()
+    # Streamlit app title and description
+    st.title("Redis Text Search App")
+    st.write("Enter your search query below:")
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        query_text = request.form['query']
-        results = redis_app.search_bm25_redis(query_text)
-        return render_template('index.html', results=results, query=query_text)
-    return render_template('index.html')
+    # Input text box for search query
+    query_text = st.text_input("Search Query", "")
+
+    # Search button to trigger the search
+    if st.button("Search"):
+        if query_text:
+            # Perform the search using RedisTextSearch class
+            results = redis_app.search_bm25_redis(query_text)
+            st.write("Search Results:")
+            for result in results:
+                st.write(result)
+        else:
+            st.write("Please enter a search query.")
+
+# Streamlit app layout
+html_template = load_template()
+st.set_page_config(page_title="Redis Text Search", page_icon="🔍")
+st.markdown(html_template, unsafe_allow_html=True)
 
 if __name__ == '__main__':
-    app.run(debug=True, threaded=False)
-
+    main()
