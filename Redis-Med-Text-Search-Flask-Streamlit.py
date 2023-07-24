@@ -130,43 +130,36 @@ class RedisTextSearch:
 
         return similar_texts
 
-# Load the HTML template
-def load_template():
-    with open('templates/index.html', 'r') as file:
-        return file.read()
+# Set the Redis Labs credentials (hardcoded for demonstration purposes)
+REDIS_HOST = 'redis-17518.c1.asia-northeast1-1.gce.cloud.redislabs.com'
+REDIS_PORT = 17518
+REDIS_PASSWORD = 'qy3S0BOfokwVQTBAjEwto10e7k4u5mKl'
 
-# Load your Streamlit app UI and run the app
+# Initialize RedisTextSearch with Redis Labs credentials
+redis_app = RedisTextSearch(api_url)
+redis_app.connect_to_redis(REDIS_HOST, REDIS_PORT, REDIS_PASSWORD)
+
+# Streamlit app code
 def main():
-    # Instantiate the RedisTextSearch class with the GitHub API URL
-    github_repo = 'aman9302/Redis-Med-Text-Search'
-    folder_path = 'mimic_case_data_redis'
-    api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
-    redis_app = RedisTextSearch(api_url)
-    redis_app.store_original_texts()
-    redis_app.store_embeddings()
+    st.title("Medical Text Search using Redis")
 
-    # Streamlit app title and description
-    st.title("Redis Text Search App")
-    st.write("Enter your search query below:")
+    # Search input
+    query_text = st.text_input("Enter query:")
 
-    # Input text box for search query
-    query_text = st.text_input("Search Query", "")
-
-    # Search button to trigger the search
+    # Search button
     if st.button("Search"):
         if query_text:
-            # Perform the search using RedisTextSearch class
+            # Perform search using RedisTextSearch
             results = redis_app.search_bm25_redis(query_text)
-            st.write("Search Results:")
-            for result in results:
-                st.write(result)
+            # Display search results
+            if results:
+                st.header("Search Results:")
+                for result in results:
+                    st.write(result)
+            else:
+                st.write("No results found.")
         else:
-            st.write("Please enter a search query.")
-
-# Streamlit app layout
-html_template = load_template()
-st.set_page_config(page_title="Redis Text Search", page_icon="🔍")
-st.markdown(html_template, unsafe_allow_html=True)
+            st.write("Please enter a query.")
 
 if __name__ == '__main__':
     main()
