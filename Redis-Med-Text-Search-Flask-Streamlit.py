@@ -130,13 +130,19 @@ class RedisTextSearch:
 
         return similar_texts
 
-## Set the Redis Labs credentials
+## Redis Labs credentials
 #
 REDIS_HOST = 'redis-17518.c1.asia-northeast1-1.gce.cloud.redislabs.com'
 REDIS_PORT = 17518
 REDIS_PASSWORD = 'qy3S0BOfokwVQTBAjEwto10e7k4u5mKl'
 
-## Initialize RedisTextSearch with Redis Labs credentials
+## GitHub repository details
+#
+github_repo = 'aman9302/Redis-Med-Text-Search'
+folder_path = 'mimic_case_data_redis'
+api_url = f'https://api.github.com/repos/{github_repo}/contents/{folder_path}'
+
+## Initialize RedisTextSearch with Redis Labs credentials and GitHub API URL
 #
 redis_app = RedisTextSearch(api_url)
 redis_app.connect_to_redis(REDIS_HOST, REDIS_PORT, REDIS_PASSWORD)
