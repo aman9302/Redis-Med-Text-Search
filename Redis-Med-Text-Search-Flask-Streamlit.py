@@ -114,22 +114,21 @@ class RedisTextSearch:
     ## Searches the bm25 model using the query text
     #
     def search_bm25_redis(self, query_text, num_results=3):
-        if self.bm25_model is None:
-            self.build_bm25_model()
+    if self.bm25_model is None:
+        self.build_bm25_model()
 
-        tokenized_query = query_text.split()
-        scores = self.bm25_model.get_scores(tokenized_query)
+    tokenized_query = query_text.split()
+    scores = self.bm25_model.get_scores(tokenized_query)
 
-        result_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:num_results]
-        similar_texts = []
-        for index, result_index in enumerate(result_indices, start=1):
-            text_key = self.redis_server.keys(f"embedding:{result_index}")[0]
-            encoded_text = self.redis_server.get(text_key).decode()
-            decoded_embedding = ast.literal_eval(encoded_text)
-            original_text = self.redis_server.get(result_index).decode()
-            similar_texts.append(f"{index}. {original_text}")
+    result_indices = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:num_results]
+    similar_texts = []
+    for index, result_index in enumerate(result_indices, start=1):
+        text_key = self.redis_server.keys(f"embedding:{result_index}")[0]
+        encoded_text = self.redis_server.get(text_key)
+        original_text = self.redis_server.get(result_index)
+        similar_texts.append(f"{index}. {original_text}")
 
-        return similar_texts
+    return similar_texts
 
 # Load the HTML template
 def load_template():
